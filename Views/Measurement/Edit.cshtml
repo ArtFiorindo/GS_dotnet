@@ -1,0 +1,42 @@
+﻿@model MeasurementApp.Models.Measurement
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 500px; background-color: #1c1c1c; border: none; border-radius: 15px; color: white;">
+        <div class="card-body">
+            <h2 class="text-center mb-4">Editar Medição</h2>
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                
+                <div class="mb-3">
+                    <label asp-for="Tower" class="form-label">Torre</label>
+                    <select asp-for="Tower" class="form-select bg-dark text-white">
+                        @foreach (var tower in Enum.GetValues(typeof(MeasurementApp.Models.Tower)))
+                        {
+                            if (Model.Tower == (MeasurementApp.Models.Tower)tower)
+                            {
+                                <option value="@tower" selected>@tower</option>
+                            }
+                            else
+                            {
+                                <option value="@tower">@tower</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="Tower" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="kWh" class="form-label">kWh</label>
+                    <input asp-for="kWh" class="form-control bg-dark text-white" placeholder="Digite o consumo em kWh" />
+                    <span asp-validation-for="kWh" class="text-danger"></span>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100 mb-3">Salvar</button>
+                    <a asp-action="List" class="btn btn-secondary w-100">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

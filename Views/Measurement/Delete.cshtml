@@ -1,0 +1,18 @@
+@model MeasurementApp.Models.Measurement
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 500px; background-color: #1c1c1c; border: none; border-radius: 15px; color: white;">
+        <div class="card-body">
+            <h2 class="text-center mb-4">Excluir Medição</h2>
+            <p>Tem certeza de que deseja excluir esta medição?</p>
+            <p><strong>Torre:</strong> @Model.Tower</p>
+            <p><strong>Gasto em kWh:</strong> @Model.kWh</p>
+            <p><strong>Data:</strong> @Model.MeasurementDate.ToString("yyyy-MM-dd")</p>
+            <form asp-action="Delete" method="post" class="mt-3">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger w-100 mb-3">Excluir</button>
+                <a asp-action="List" class="btn btn-secondary w-100">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>

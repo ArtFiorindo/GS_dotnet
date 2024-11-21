@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MeasurementApp.Models.Measurement>
+
+<div class="container mt-5">
+    <h2 class="text-center text-white mb-4">Histórico de Medição</h2>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Nova Medição</a>
+    </p>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+        <div class="col-md-6 mx-auto">
+            <div class="card mb-3" style="background-color: #1c1c1c; border: none; border-radius: 15px; color: white;">
+                <div class="card-body">
+                    <p><strong>Torre:</strong> @item.Tower</p>
+                    <p><strong>Gasto em kWh:</strong> @item.kWh</p>
+                    <p><strong>Data:</strong> @item.MeasurementDate.ToString("yyyy-MM-dd")</p>
+                    <div class="d-flex justify-content-around mt-3">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

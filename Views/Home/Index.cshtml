@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MeasurementApp.Models.Measurement>
+
+@{
+ViewData["Title"] = "Home Page";
+}
+
+
+<style>
+    .hero-text {
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .card-bg {
+        width: 45vw;
+        height: 80vh;
+    }
+</style>
+
+
+<div class="card card-bg bg-dark border-0 mx-auto my-auto">
+    <div class="hero-text">
+        <h1 class="display-3">Bem-vindo ao Suffra.Dev!</h1>
+        <p class="lead">Começe a mudar o futuro agora!</p>
+        <hr class="my-4">
+            <a asp-controller="Measurement" asp-action="Create" class="btn btn-primary">Adicionar uma nova medição</a>
+    </div>
+</div>

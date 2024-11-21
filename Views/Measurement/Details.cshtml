@@ -1,0 +1,22 @@
+@model MeasurementApp.Models.Measurement
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 500px; background-color: #1c1c1c; border: none; border-radius: 15px; color: white;">
+        <div class="card-body">
+            <h2 class="text-center mb-4">Detalhes da Medição</h2>
+            <dl class="row">
+                <dt class="col-sm-4">Torre</dt>
+                <dd class="col-sm-8">@Model.Tower</dd>
+
+                <dt class="col-sm-4">kWh</dt>
+                <dd class="col-sm-8">@Model.kWh</dd>
+
+                <dt class="col-sm-4">Data da Medição</dt>
+                <dd class="col-sm-8">@Model.MeasurementDate.ToString("yyyy-MM-dd")</dd>
+            </dl>
+            <div class="text-center">
+                <a asp-action="List" class="btn btn-secondary w-100 mt-3">Voltar para a lista</a>
+            </div>
+        </div>
+    </div>
+</div>
