@@ -10,13 +10,11 @@ O **MeasurementApp** é um sistema desenvolvido com **ASP.NET Core MVC** para ge
 ## Equipe
 
 > **Artur Lopes Fiorindo** » 53481  
-> Responsável pela implementação do endpoint para **Ocorrências**  
 > 
 > **Eduardo Felipe Nunes Função** » 553362  
-> Responsável pela implementação do endpoint para **Pacientes**  
 > 
 > **Jhoe Kochi Hashimoto** » 553831  
-> Responsável pela ideação e definições de negócio do projeto  
+> 
 
 ---
 
