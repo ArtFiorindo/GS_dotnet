@@ -5,7 +5,7 @@ O **MeasurementApp** é um sistema desenvolvido com **ASP.NET Core MVC** para ge
 
 ---
 
-**Link GitHub**: [https://github.com/eduardofuncao/on-data-server-dotnet](https://github.com/ArtFiorindo/GS_dotnet/tree/main)
+**Link GitHub**: [https://github.com/ArtFiorindo/GS_dotnet/tree/main](https://github.com/ArtFiorindo/GS_dotnet/tree/main)
 
 ## Equipe
 
