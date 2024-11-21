@@ -1,4 +1,4 @@
-# **MeasurementApp**
+# **SuffraDev**
 
 ## 📋 **Descrição**
 O **MeasurementApp** é um sistema desenvolvido com **ASP.NET Core MVC** para gerenciar e monitorar medições de consumo de energia em diferentes torres. O sistema inclui funcionalidades de CRUD (Create, Read, Update, Delete) e uma visualização de estatísticas com gráficos e cards dinâmicos.
