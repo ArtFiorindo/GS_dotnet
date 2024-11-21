@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuração da string de conexão para o banco de dados Oracle
 var connectionString = builder.Configuration.GetConnectionString("OracleDbConnection");
 if (string.IsNullOrEmpty(connectionString))
 {
@@ -12,16 +13,18 @@ if (string.IsNullOrEmpty(connectionString))
 }
 Console.WriteLine($"Using connection string: {connectionString}");
 
-
+// Configuração do DbContext para uso do Oracle
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("OracleDbConnection")));
-
+    options.UseOracle(connectionString));
 
 // Configuração do repositório genérico
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 // Configuração do serviço MeasurementService
 builder.Services.AddScoped<MeasurementService>();
+
+// Configuração do SignalR
+builder.Services.AddSignalR();
 
 // Adiciona suporte para controladores e views (MVC)
 builder.Services.AddControllersWithViews();

@@ -1,0 +1,79 @@
+@{
+ViewData["Title"] = "Estatísticas de Torres";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-white mb-4">Consumo por Torre</h2>
+    <div class="row" id="towerCards"></div>
+</div>
+
+<script>
+    // Função para gerar o HTML dos cards
+    function generateCard(tower, percentage, totalkWh, color) {
+        return `
+            <div class="col-md-4 mb-4">
+                <div class="card text-center" style="background-color: #1c1c1c; color: white; border: none; border-radius: 15px;">
+                    <div class="card-body">
+                        <h5 class="card-title">${tower}</h5>
+                        <p class="card-text">${percentage.toFixed(1)}% dos gastos gerais (${totalkWh.toFixed(2)} kWh)</p>
+                        <div class="progress-circle" style="margin: 0 auto; width: 100px; height: 100px; position: relative;">
+                            <svg viewBox="0 0 36 36" style="width: 100%; height: 100%;">
+                                <path
+                                    d="M18 2.0845
+                                       a 15.9155 15.9155 0 0 1 0 31.831
+                                       a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    fill="none"
+                                    stroke="#333"
+                                    stroke-width="2"
+                                ></path>
+                                <path
+                                    d="M18 2.0845
+                                       a 15.9155 15.9155 0 0 1 0 31.831"
+                                    fill="none"
+                                    stroke="${color}"
+                                    stroke-width="2"
+                                    stroke-dasharray="${percentage}, 100"
+                                    stroke-linecap="round"
+                                ></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Função para atualizar os cards
+    function updateCards(data) {
+        const colors = ["#3cba9f", "#f4c20d", "#db3236"]; // Personalizar as cores
+        const towerCards = document.getElementById('towerCards');
+        towerCards.innerHTML = ''; // Limpa os cards existentes
+
+        data.forEach((item, index) => {
+            const cardHTML = generateCard(item.tower, item.percentage, item.totalkWh, colors[index % colors.length]);
+            towerCards.innerHTML += cardHTML;
+        });
+    }
+
+    // Carrega os dados ao carregar a página
+    fetch('/Measurement/GetTowerData')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao carregar dados do servidor.");
+            }
+            return response.json();
+        })
+        .then(data => updateCards(data))
+        .catch(err => console.error("Erro ao carregar dados:", err));
+</script>
+
+<style>
+    .progress-circle {
+        position: relative;
+        width: 100px;
+        height: 100px;
+    }
+    .progress-circle svg {
+        transform: rotate(-90deg);
+    }
+</style>

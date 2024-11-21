@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SuffraDev")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ffc24c6576fed01be6e73e07c1626d82567c90e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+32478050d45591275354d4a604124d10440ea81c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SuffraDev")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SuffraDev")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
