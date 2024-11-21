@@ -117,7 +117,7 @@ MeasurementApp/
    ```
 
 6. **Acesse a aplicação**:
-   - Abra o navegador e acesse: `http://localhost:5000`
+   - Abra o navegador e acesse: `http://localhost:5184`
 
 ---
 
